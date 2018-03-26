@@ -299,12 +299,12 @@ int power(int n, int *x){
 
 
 /* Test platform */
-
+// common main is : int main(int argc, char **argv){
 int main()
 {
-	int args[2] = {8,4};
-
-	printf("8 to power 4 is %d\n", power(2,args));
+	int args[2] = {2,5};		// was 	int args[2] = {8,4};
+    printf("first %d, second %d\n\n", args[0],args[1]);
+	printf("%d to power %d is %d\n",args[0],args[1], power(2,args));  // was 	printf("8 to power 4 is %d\n", power(2,args));
 #ifdef PROFILE
 	printf("%s\t%s\t%s\t%s\t%s\t%s\n","Z","N","proj","subst","recurse",
 	 "add");
