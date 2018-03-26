@@ -153,7 +153,7 @@ int recurse(int n, int *x, int y, int(*g)(int,int*), int(*h)(int, int *)){
 
 int mu(int n, int *x, int(*f)(int, int *)){
 
-	int *xy, i, rval, y;
+	int *xy, i, rval;   // was 	int *xy, i, rval, y;
 
 #ifdef PROFILE
 	mu_calls++;
