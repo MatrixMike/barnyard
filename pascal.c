@@ -26,7 +26,7 @@
 #endif
 
 #define PROGRAM_NAME "pascal"
-#define VERSION "1.0"
+#define VERSION "1.1"
 #define MAX_ROWS 30
 #define USAGE "usage: pascal [ -h -v] [-c rows] rows\n"
 #define HELP "\n\npascal [-h -v] [-c n] n \n\
@@ -37,14 +37,14 @@ print the first n rows of pascal's triangle to stdout.\n\
 
 static int triangle[MAX_ROWS + 1][MAX_ROWS];
 
-/* num_digits: count how man digits the argument has and return that number */
+/* num_digits: count how many digits the argument has and return that number */
 
 int num_digits(int n) {
 
 	int d = 1;
 
 	
-	while(n=n/10)d++;
+	while   (    (n=n/10)    )   d++; // successively divide by 10 and incrementing d 
 	return d;
 }
 
