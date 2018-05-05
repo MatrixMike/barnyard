@@ -236,7 +236,7 @@ int main(int argc, char **argv)
 	gen_perm2(1);
 #endif
 #ifdef METHOD3
-		nn=4;
+		nn=3;
 		while(gen_perm3(nn)==0){
 			for(i=0;i<nn;i++)
 				printf("%d",p[i]);

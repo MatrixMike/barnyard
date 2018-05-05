@@ -43,7 +43,9 @@ begins with a distinct token.
    good practise to choose values >= 256 so they don't interfere with actual
    character values.
 */
-
+/*
+ * exec the program and enter Roman numerals
+ */
 #define M  256
 #define CM 257
 #define D  258
@@ -198,7 +200,7 @@ int main()
 		printf("%d\n",num);
 		if(lookahead != '\n'){
 			error("Extra characters at end of line.\n");
-			while((lookahead = getchar())!= '\n');
+			while((lookahead = toupper(getchar()))!= '\n');
 		}
 		line++;
 	}

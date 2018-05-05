@@ -54,7 +54,7 @@ int main(int argc, char **argv)
 {
 	
 	void  *(*q[MAX_N]);
-	int N,n,i;
+	int N,n;  // i 
 
 	/* sanity checks */
 
