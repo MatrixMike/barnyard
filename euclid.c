@@ -47,7 +47,7 @@
  * Our implementation is recursive and also yields the coefficients c and d
  * such that gcd(a,b) = c*a + d*b.
  *
-*/             
+*/
 
 
 /* compile: cc -o euclid  euclid.c
@@ -63,7 +63,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-#define VERSION "1.0"
+#define VERSION "1.1"
 #define USAGE "euclid [ -h -v -- ] a b"
 #ifndef _SHORT_STRINGS
 #define HELP "\neuclid [ -h -v --] a b\n\n\
@@ -80,111 +80,125 @@ Find the greatest common divisor of a and b. Express as c*a + d*b. \n\n\
  * that gcd(a,b) = c*a + b*d.
  */
 
-int my_gcd(int a, int b, int *c, int *d)
+int
+my_gcd (int a, int b, int *c, int *d)
 {
-	int q,r,t,C,D,rval;
-	int sgn_a = 1,sgn_b = 1, swap = 0;
+  int q, r, C, D, rval;
+  int sgn_a = 1, sgn_b = 1, swap = 0;
 
-	/* Normalize so that 0 < a <= b */
-	if((a == 0)||(b == 0)) return -1;
-	if(a < 0){
-	       	a = -a;
-		sgn_a = -1;
-	}
-	if(b < 0){
-	       	b = -b;
-		sgn_b = -1;
-	}
-	if(b < a){
-		t = b;
-		b = a;
-		a = t;
-		swap = 1;
-	}
+  /* Normalize so that 0 < a <= b */
+  if ((a == 0) || (b == 0))
+    return -1;
+  if (a < 0)
+    {
+      a = -a;
+      sgn_a = -1;
+    }
+  if (b < 0)
+    {
+      b = -b;
+      sgn_b = -1;
+    }
+  if (b < a)
+    {
+      int t = b;
+      b = a;
+      a = t;
+      swap = 1;
+    }
 
-	/* Now a <= b and both >= 1. */
+  /* Now a <= b and both >= 1. */
 
-	q = b/a;
-	r = b - a*q;
-	if(r == 0) {
-		if(swap){
-			*d = 1;
-			*c = 0;
-		}
-		else {
-			*c = 1;
-			*d = 0;
-		}
-		*c = sgn_a*(*c);
-		*d = sgn_b*(*d);
-		return a;
+  q = b / a;
+  r = b - a * q;
+  if (r == 0)
+    {
+      if (swap)
+	{
+	  *d = 1;
+	  *c = 0;
 	}
+      else
+	{
+	  *c = 1;
+	  *d = 0;
+	}
+      *c = sgn_a * (*c);
+      *d = sgn_b * (*d);
+      return a;
+    }
 
-	rval =  my_gcd(a,r,&C,&D);
-	if(swap){
-		*d = (C-D*q);
-		*c = D;
-	}
-	else {
-		*d = D;
-		*c = (C-D*q);
-	}
-	*c = sgn_a*(*c);
-	*d = sgn_b*(*d);
-	return rval;
+  rval = my_gcd (a, r, &C, &D);
+  if (swap)
+    {
+      *d = (C - D * q);
+      *c = D;
+    }
+  else
+    {
+      *d = D;
+      *c = (C - D * q);
+    }
+  *c = sgn_a * (*c);
+  *d = sgn_b * (*d);
+  return rval;
 }
 
 
 int
-main(int argc, char **argv)
+main (int argc, char **argv)
 {
-	int g,a,b,c,d;
-	int j=0;
+  int g, a, b, c, d;
+  int j = 0;
 
-	/* Process command line */
-	while(++j < argc){
-		if(argv[j][0] == '-')
-			switch(argv[j][1]){ 
-				case '-':
-					++j;
-					break;
-				case 'v':
-				case 'V':
-					printf("%s\n",VERSION);
-					exit(0);
-				case '?':
-				case 'h':
-				case 'H':
-					printf("%s\n",HELP);
-					exit(0);
-				default:
-					fprintf(stderr,"euclid: unkown option %s\n",
-						argv[j]);
-					fprintf(stderr,"%s\n",USAGE);
-					exit(1);
-			}
-		break;
-	}
+  /* Process command line */
+  while (++j < argc)
+    {
+      if (argv[j][0] == '-')
+	switch (argv[j][1])
+	  {
+	  case '-':
+	    ++j;
+	    break;
+	  case 'v':
+	  case 'V':
+	    printf ("%s\n", VERSION);
+	    exit (0);
+	  case '?':
+	  case 'h':
+	  case 'H':
+	    printf ("%s\n", HELP);
+	    exit (0);
+	  default:
+	    fprintf (stderr, "euclid: unkown option %s\n", argv[j]);
+	    fprintf (stderr, "%s\n", USAGE);
+	    exit (1);
+	  }
+      break;
+    }
 
-	if(j >= argc){
-		fprintf(stderr,"euclid: usage error.\n");
-		fprintf(stderr,"%s\n",USAGE);
-		return 1;
-	}
-	a = atoi(argv[j++]);
-	if(j >= argc){
-		fprintf(stderr,"euclid: usage error.\n");
-		fprintf(stderr,"%s\n",USAGE);
-		return 1;
-	}
-	b = atoi(argv[j++]);
+  if (j >= argc)
+    {
+      fprintf (stderr, "euclid: usage error.\n");
+      fprintf (stderr, "%s\n", USAGE);
+      return 1;
+    }
+  a = atoi (argv[j++]);
+  if (j >= argc)
+    {
+      fprintf (stderr, "euclid: usage error.\n");
+      fprintf (stderr, "%s\n", USAGE);
+      return 1;
+    }
+  b = atoi (argv[j++]);
 
-	g = my_gcd(a,b,&c,&d);
-	if(g == -1){
-		fprintf(stderr,"euclid: gcd(%d,%d) is not defined.\n",a,b);
-		return 1;
-	}
-	printf("gcd(%d,%d) = %d = (%d)*(%d)+(%d)*(%d).\n",a,b,g,c,a,d,b);
-	return 0;
+  g = my_gcd (a, b, &c, &d);
+  if (g == -1)
+    {
+      fprintf (stderr, "euclid: gcd(%d,%d) is not defined.\n", a, b);
+      return 1;
+    }
+  printf ("gcd(%d,%d) = %d = (%d)*(%d)+(%d)*(%d).\n", a, b, g, c, a, d, b);
+  return 0;
 
 }
