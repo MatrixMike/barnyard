@@ -1,0 +1,3 @@
+# source of some of these is as below 
+ so acknowledgement to the author here...
+http://barnyard.syr.edu/quickies/
