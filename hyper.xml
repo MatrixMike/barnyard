@@ -1,0 +1,22 @@
+<?xml version="1.0" standalone="yes"?>
+<!DOCTYPE function_table 
+[
+]>
+<?xml-stylesheet type="text/css" href="function_table.css"?>
+<function_table>
+<title> Hypergeometric Function F(a,b,c;x) </title>
+<header>
+	<cell width="5">x</cell>
+	<cell width="5">a</cell>
+	<cell width="5">b</cell>
+	<cell width="5">c</cell>
+	<cell width="11">F(a,b,c;x)</cell>
+</header> 
+<row>
+	<cell width="5">0.000</cell>
+	<cell width="5">1.000</cell>
+	<cell width="5">1.000</cell>
+	<cell width="5">1.000</cell>
+	<cell width="11">1.0000000</cell>
+</row>
+</function_table>

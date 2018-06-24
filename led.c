@@ -222,9 +222,9 @@ void print_led(unsigned long x, char *buf)
 int main(int argc, char **argv)
 {
 
-	int i=0,n;
+//	int i=0;  // ,n;
 	long x;
-	static int d[MAX_DIGITS];
+//	static int d[MAX_DIGITS];
 	char buf[5*MAX_DIGITS];
 
 	if(argc != 2){
@@ -239,7 +239,7 @@ int main(int argc, char **argv)
 	/* sanity check */
 
 	if(x<0){
-		fprintf(stderr,"led: %d must be non-negative\n",x);
+		fprintf(stderr,"led: %ld must be non-negative\n",x);
 		return 1;
 	}
 

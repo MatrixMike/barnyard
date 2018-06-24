@@ -150,7 +150,7 @@ int random_on(int k){
 int
 main(int argc, char **argv){
 
-	int c,i=1;
+	int i=1;
 	int output_type = ASCII;
 	int nprobs = NPROBS;
 	int row=1,col=1;
@@ -633,7 +633,7 @@ int make_prob_tex(int row, int col, int type, int ans)
 
 	int arg1, arg2;
 	int answer;
-	int xtra,xtra_save,l,i,j;
+	int xtra,i;
 	char lbuf[128];
 	char *bptr;
 

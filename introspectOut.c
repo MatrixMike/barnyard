@@ -1,0 +1,5 @@
+static char dna[] = "#include<stdlib.h>\n#include<stdio.h>\n#include<string.h>\n char *quote(char *,char *); int main(){ char buffer[2048]; printf(\"static char dna[]=\\\"%s\\\";\\n%s\",quote(dna,buffer),dna);return 0;}char *quote(char *in,char *out){int i=0,j=0;for(i=0;i<strlen(in);i++){switch(in[i]){case \'\\\\\':case \'\\n\': case \'\\\"\': case \'\\\'\': out[j++]=\'\\\\\';break;default:;}if(in[i]==\'\\n\')out[j++]=\'n\';else out[j++]=in[i];}out[j]=\'\\0\';return out;}";
+#include<stdlib.h>
+#include<stdio.h>
+#include<string.h>
+ char *quote(char *,char *); int main(){ char buffer[2048]; printf("static char dna[]=\"%s\";\n%s",quote(dna,buffer),dna);return 0;}char *quote(char *in,char *out){int i=0,j=0;for(i=0;i<strlen(in);i++){switch(in[i]){case '\\':case '\n': case '\"': case '\'': out[j++]='\\';break;default:;}if(in[i]=='\n')out[j++]='n';else out[j++]=in[i];}out[j]='\0';return out;}

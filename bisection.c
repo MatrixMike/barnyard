@@ -2,7 +2,7 @@
  *
  *  By Terry R. McConnell
  *
-/*             
+ *             
 
 	Solves f(x) = 0, given an initial interval [a,b] such that f has
 	differing signs at the endpoints. Quits when f((a+b)/2) is close

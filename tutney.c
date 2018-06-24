@@ -138,7 +138,7 @@ int is_vowel(char c){
 
                         case 'a':
                         case 'e':
-			case 'i':
+						case 'i':
                         case 'o':
                         case 'u':
                                 return TRUE;
