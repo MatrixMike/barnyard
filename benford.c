@@ -55,9 +55,10 @@ main()
 	double freq[9] = {0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0};
 	char buffer[10];
 	double count = 0.0,datum,i=0.0;
-	int digit,j;
+	int j;
 
 	while(scanf("%lf",&datum) != EOF) {
+		int digit;
  		count += 1.0;
 
               /* Compute the most significant digit and 
