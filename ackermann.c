@@ -194,15 +194,15 @@ main(int argc, char **argv)
 	if(argc == 3){
 		x = atoi(argv[1]);
 		y = atoi(argv[2]);
-		printf("a(%d,%d) = %d\n",x,y,ack(x,y));
+		printf("a(%u,%u) = %u\n",x,y,ack(x,y));
 		return 0;
 	}
 
 	for(k=0;k<=MAX;k++){
-		printf("\nx+y=%d:\n\n",k);
+		printf("\nx+y=%u:\n\n",k);
 		for(y=0;y<=k;y++){
 				depth = 0;  /* stack guard */
-				printf("A(%d,%d) = %d\n",k-y,y,ack(k-y,y));
+				printf("A(%d,%u) = %u\n",k-y,y,ack(k-y,y));
 		}
 	}
 	return 0; /* Don't hold your breath ! */

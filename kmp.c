@@ -227,7 +227,7 @@ main(int argc, char **argv){
 	char source[MAX_SOURCE],*target,*p;
 	int c,i=0;
 	int f_flag = 0,n_flag = 0,r_flag=0;
-	int lines = 0;
+
 	char *ll;
         char *(*use_strstr)(const char *,const char*) = &my_strstr;
 
@@ -312,6 +312,7 @@ main(int argc, char **argv){
 	printf("target = %s\n",target);
 
 	if(p){
+		int lines = 0;
 		/* don't print out lines before the one containing target */
 		ll = source; /* Position of start of most recent line */
 		for(i=0;i<p-source;i++) 

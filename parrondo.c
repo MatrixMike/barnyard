@@ -139,7 +139,6 @@ main(int argc, char **argv)
 	int win_count = 0;
 	int loss_count = 0;
 	long site_visits[3];  /* counts visits to numbers mod 3 */
-	int fortune = 0;
 	int max_fortune = MAX_FORTUNE;
 	double game_select = 0.5;  /* Governs a coin toss below which selects
                                       between games. Setting this to 1.0 chooses
@@ -219,7 +218,7 @@ main(int argc, char **argv)
 	i=0;
 	printf("Simulating %d trials ...\n",trials);
 	while(i<trials){   /* Loop over trials */
-
+	int fortune = 0;
 		/* reseed */
 		seed = RANDOM();
 		SRANDOM((int)seed);

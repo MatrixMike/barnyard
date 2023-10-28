@@ -197,7 +197,7 @@ int main()
 	while((lookahead = next_token()) !=EOF){
 		num = 0;
 		thousands();
-		printf("%d\n",num);
+		printf("%u\n",num);
 		if(lookahead != '\n'){
 			error("Extra characters at end of line.\n");
 			while((lookahead = toupper(getchar()))!= '\n');

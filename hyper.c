@@ -150,7 +150,7 @@ int handle_error(void);
 int
 main(int argc, char **argv)
 {
-	int n = 1,i=1,j;
+	int n = 1,i=1;
 	int xml=0;
 	double a = 1.0, b = 1.0, c=1.0, x = 0.0, dx = 0.1, derror = DERROR;
 	double da = 0.0, db = 0.0, dc = 0.0,t;
@@ -367,13 +367,14 @@ double hypersum(double a, double b, double c, double x, double derror)
 	double rval = 1.0;
 	double n = 1.0;
 	double term = a*b*x/c;
-	double K,C;
+	double K;
 
 	/* find max(|a|,|b|,|c|) for use below */
 	K = fabs(a) ? fabs(b) : fabs(a) > fabs(b);
 	K = K ? fabs(c) : K > fabs(c);
 
 	do {
+	double C;
 		/* Decide whether we are accurate enough yet, i.e., if
 		 * tail of hypergeometric series < derror. Let An be nth term
 		 * of series, and Bn = (a+n)(b+n)/[(c+n)(1+n)]. Then
